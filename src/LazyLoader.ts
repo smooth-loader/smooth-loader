@@ -50,7 +50,7 @@
      * sets them on image object, adds classes to image and
      * when image is loaded, appends it to a placeholder
      */
-    public start(): void {
+    public execute(): void {
         this.images.forEach(img => {
             !window['IntersectionObserver'] ? this.loadImage(img) : this.createObserver(img)
         })
