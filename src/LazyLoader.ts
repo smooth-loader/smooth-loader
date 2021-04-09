@@ -22,11 +22,13 @@
 
         if (!dataAttr) return
 
-        img.tagName === 'IMG'
-            ? img.setAttribute('src', dataAttr)
-            : img.style.background = `url(${img.getAttribute('data-src')})`
-
-        setTimeout(() => img.classList.add('smooth-loaded'), 500)
+        if (img.tagName === 'IMG') {
+            img.setAttribute('src', dataAttr)
+            img.addEventListener('load', () => img.classList.add('smooth-loaded'))
+        } else {
+            img.style.background = `url(${img.getAttribute('data-src')})`
+            setTimeout(() => img.classList.add('smooth-loaded'), 0)
+        }
     }
 
     /**
