@@ -15,7 +15,7 @@ Fast and lightweight image lazy loader written in TypeScript. This package allow
 Using npm:
 
 ```bash
-npm i smooth-loader --save
+npm i smooth-loader
 ```
 
 Using yarn:
