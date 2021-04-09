@@ -26,7 +26,7 @@
             ? img.setAttribute('src', dataAttr)
             : img.style.background = `url(${img.getAttribute('data-src')})`
 
-        img.classList.add('sho-lazy-loaded')
+        setTimeout(() => img.classList.add('smooth-loaded'), 500)
     }
 
     /**

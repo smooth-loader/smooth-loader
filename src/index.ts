@@ -1,7 +1,7 @@
 import LazyLoader from "./LazyLoader"
 
 export default () => {
-    const images = document.querySelectorAll<HTMLImageElement|HTMLDivElement>('smooth-loader')
+    const images = document.querySelectorAll<HTMLImageElement|HTMLDivElement>('.smooth-loader')
 
     if (!images) {
         return
