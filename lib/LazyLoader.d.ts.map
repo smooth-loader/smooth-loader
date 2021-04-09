@@ -1,0 +1,1 @@
+{"version":3,"file":"LazyLoader.d.ts","sourceRoot":"","sources":["../src/LazyLoader.ts"],"names":[],"mappings":"AAAA;;;GAGG;AACF,MAAM,CAAC,OAAO;IACX,OAAO,CAAC,QAAQ,CAAC,MAAM,CAA+C;IACtE,OAAO,CAAC,eAAe,CAGtB;gBAEkB,MAAM,EAAE,UAAU,CAAC,cAAc,GAAG,gBAAgB,CAAC;IAIxE;;;OAGG;IACH,OAAO,CAAC,SAAS;IAYjB;;OAEG;IACH,OAAO,CAAC,cAAc;IAatB;;;;OAIG;IACI,KAAK,IAAI,IAAI;CAKvB"}
