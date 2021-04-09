@@ -1,5 +1,7 @@
 # Installation
 
+> IN DEVELOPMENT !!!
+
 Npm:
 ```bash
 npm i smooth-loader --save
