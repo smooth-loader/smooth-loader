@@ -1,2 +1,3 @@
-export declare function imageObserver(images: NodeListOf<HTMLDivElement | HTMLImageElement>): void;
+declare const _default: () => void;
+export default _default;
 //# sourceMappingURL=index.d.ts.map

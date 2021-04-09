@@ -20,6 +20,6 @@ export default class {
      * sets them on image object, adds classes to image and
      * when image is loaded, appends it to a placeholder
      */
-    start(): void;
+    execute(): void;
 }
 //# sourceMappingURL=LazyLoader.d.ts.map
