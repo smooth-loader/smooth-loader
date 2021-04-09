@@ -24,7 +24,7 @@
 
         img.tagName === 'IMG'
             ? img.setAttribute('src', dataAttr)
-            : img.style.background = `url(${img.getAttribute('data-bg')})`
+            : img.style.background = `url(${img.getAttribute('data-src')})`
 
         img.classList.add('sho-lazy-loaded')
     }
