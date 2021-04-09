@@ -1,6 +1,6 @@
 {
   "name": "smooth-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This package allows you to lazy load your images using IntersectionObserver technology. It supports loading background images as well as the regular images with img tag.",
   "main": "lib/js/index.js",
   "types": "lib/js",
