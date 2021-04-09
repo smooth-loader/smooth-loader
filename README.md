@@ -10,8 +10,6 @@ Fast and lightweight image lazy loader written in TypeScript. This package allow
 
 # Installing
 
-> IN DEVELOPMENT !!!
-
 Using npm:
 
 ```bash
