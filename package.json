@@ -8,7 +8,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "build": "tsc -p ."
+    "build": "tsc -p .",
+    "watch": "tsc --watch"
   },
   "keywords": ["lazy loader", "lazy", "image loader", "lazy loading", "background image"],
   "author": "Serhii Cho",
