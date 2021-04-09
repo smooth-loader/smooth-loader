@@ -8,31 +8,30 @@ Fast and lightweight image lazy loader written in TypeScript. This package allow
 - Loads background images
 - Loads images with nice smooth animation
 
-# Installing
-
-Using npm:
+# Installation
 
 ```bash
+# npm
 npm i smooth-loader
+
+# yarn
+yarn add smooth-loader
 ```
 
-Using yarn:
+Import `smooth-loader` and the core CSS. This assumes you're using a module bundler like webpack.
 
-```bash
-yarn add smooth-loader
+```js
+import smoothLoader from 'smooth-loader'
+import 'smooth-loader/lib/css/index.css'
 ```
 
 # Usage
 
-Importing in your JavaScript or TypeScript.
-
 ```js
-import smoothLoader from 'smooth-loader'
-
 smoothLoader()
 ```
 
-In order to create image just replace `src` attribute with `data-src` on image and add `smooth-loader` css class. For background images it's the same.
+Replace `src` attribute with `data-src` on image and add `smooth-loader` css class.
 
 ```html
 <!-- Regular image -->
