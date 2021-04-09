@@ -1,0 +1,8 @@
+ .smooth-loader {
+    opacity: 0;
+    transition: opacity 777ms;
+}
+
+.smooth-loaded {
+    opacity: 1;
+}
