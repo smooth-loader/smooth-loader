@@ -6,7 +6,7 @@ Fast and lightweight image lazy loader written in TypeScript. This package allow
 
 - Loads images with IMG tag
 - Loads background images
-- Loads images with nice smooth animation
+- Loads images with a smooth fade in animation
 
 # Installation
 
