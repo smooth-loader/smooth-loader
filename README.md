@@ -2,6 +2,8 @@
 
 Fast and lightweight image lazy loader written in TypeScript. This package allows you to lazy load your images using IntersectionObserver. It can load background images as well as the regular images with img tag.
 
+### [Try it on Codesandbox](https://codesandbox.io/s/smooth-loader-example-usage-5xr6h)
+
 # Features
 
 - Loads images with IMG tag
