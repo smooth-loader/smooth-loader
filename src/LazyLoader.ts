@@ -1,15 +1,17 @@
+import { LazyImage } from './types'
+
 /**
  * Class that handles lazy loading images with
  * Intersection Observer
  */
- export default class {
-    private readonly images: NodeListOf<HTMLDivElement | HTMLImageElement>
+export default class {
+    private readonly images: NodeListOf<LazyImage>
     private observerOptions = {
         root: null,
         threshold: 0,
     }
 
-    public constructor(images: NodeListOf<HTMLDivElement | HTMLImageElement>) {
+    public constructor(images: NodeListOf<LazyImage>) {
         this.images = images
     }
 
@@ -17,13 +19,13 @@
      * If image has tag IMG then set the src attribute to img url,
      * otherwise set the background of the element to given image url
      */
-    private loadImage(img: HTMLDivElement | HTMLImageElement): void {
-        const dataAttr = img.getAttribute('data-src')
+    private loadImage(img: LazyImage): void {
+        const imageUrl = img.getAttribute('data-src')
 
-        if (!dataAttr) return
+        if (!imageUrl) return
 
         if (img.tagName === 'IMG') {
-            img.setAttribute('src', dataAttr)
+            img.setAttribute('src', imageUrl)
             img.addEventListener('load', () => img.classList.add('smooth-loaded'))
         } else {
             img.style.backgroundImage = `url(${img.getAttribute('data-src')})`
@@ -34,7 +36,7 @@
     /**
      * Create observer object
      */
-    private createObserver(img: HTMLDivElement | HTMLImageElement): void {
+    private createObserver(img: LazyImage): void {
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
