@@ -1,3 +1,4 @@
+import { LazyImage } from './types';
 /**
  * Class that handles lazy loading images with
  * Intersection Observer
@@ -5,7 +6,7 @@
 export default class {
     private readonly images;
     private observerOptions;
-    constructor(images: NodeListOf<HTMLDivElement | HTMLImageElement>);
+    constructor(images: NodeListOf<LazyImage>);
     /**
      * If image has tag IMG then set the src attribute to img url,
      * otherwise set the background of the element to given image url
