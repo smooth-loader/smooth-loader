@@ -1,7 +1,7 @@
 import LazyLoader from "./LazyLoader"
 import { LazyImage } from './types'
 
-export default (selector?: NodeListOf<LazyImage> | string) => {
+export default (selector?: NodeListOf<LazyImage> | string): void => {
     const images = getImagesElements(selector)
 
     if (!images)

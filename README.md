@@ -32,11 +32,27 @@ import 'smooth-loader/lib/css/index.css'
 
 # Usage
 
+To make image or element Lazy loaded, replace `src` attribute with `data-src`
+on image element, and add `data-src` attribute to elements that have background
+image that you want to lazy load.
+
+- Add **smooth-loader** css class to each image or element that you want to lazy load.
+Unless you want to specify your own selector for images instead of **smooth-loader**.
+- Call `smoothLoader()` function when you want to lazy load images.
+
 ```js
+// with .smooth-loader selector
 smoothLoader()
+
+// with custom string selector
+smoothLoader('.lazy-image')
+
+// with custom elements
+const myImages = document.querySelectorAll<HTMLImageElement>('img')
+smoothLoader(myImages)
 ```
 
-Replace `src` attribute with `data-src` on image and add `smooth-loader` css class.
+> Note, that lazy loading works only when your elements are already in the DOM. Meaning, if images are loaded after the `smoothLoader` was executed, lazy loading will not work.
 
 ```html
 <!-- Regular image -->
@@ -44,4 +60,10 @@ Replace `src` attribute with `data-src` on image and add `smooth-loader` css cla
 
 <!-- Background image -->
 <div data-src="./images/we.png" class="smooth-loader my-bg-image"></div>
+```
+
+# Function types
+
+```js
+function smoothLoader(selector?: NodeListOf<HTMLDivElement | HTMLImageElement> | string) => void
 ```
