@@ -12,7 +12,13 @@
     "watch": "tsc --watch",
     "publish": "npm publish"
   },
-  "keywords": ["lazy loader", "lazy", "image loader", "lazy loading", "background image"],
+  "keywords": [
+    "lazy loader",
+    "lazy",
+    "image loader",
+    "lazy loading",
+    "background image"
+  ],
   "author": "Serhii Cho",
   "license": "MIT",
   "homepage": "https://github.com/SerhiiCho/smooth-loader#readme"
