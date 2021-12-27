@@ -22,14 +22,18 @@ export default class {
     private loadImage(img: LazyImage): void {
         const imageUrl = img.getAttribute('data-src')
 
-        if (!imageUrl) return
+        img.style.opacity = '0'
+        img.style.transition = 'opacity 777ms'
+
+        if (!imageUrl)
+            return
 
         if (img.tagName === 'IMG') {
             img.setAttribute('src', imageUrl)
-            img.addEventListener('load', () => img.classList.add('smooth-loaded'))
+            img.addEventListener('load', () => img.style.opacity = '1')
         } else {
             img.style.backgroundImage = `url(${img.getAttribute('data-src')})`
-            setTimeout(() => img.classList.add('smooth-loaded'), 0)
+            setTimeout(() => img.style.opacity = '1', 0)
         }
     }
 

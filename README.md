@@ -23,11 +23,10 @@ npm i smooth-loader
 yarn add smooth-loader
 ```
 
-Import `smooth-loader` and the core CSS. This assumes you're using a module bundler like webpack.
-
 ```js
 import smoothLoader from 'smooth-loader'
-import 'smooth-loader/lib/css/index.css'
+
+smoothLoader()
 ```
 
 # Usage
@@ -36,8 +35,7 @@ To make image or element Lazy loaded, replace `src` attribute with `data-src`
 on image element, and add `data-src` attribute to elements that have background
 image that you want to lazy load.
 
-- Add **smooth-loader** css class to each image or element that you want to lazy load.
-Unless you want to specify your own selector for images instead of **smooth-loader**.
+- Add **smooth-loader** css class to each image or element that you want or specify your own selector for images instead of **smooth-loader**.
 - Call `smoothLoader()` function when you want to lazy load images.
 
 ```js
