@@ -6,8 +6,8 @@ This package is a MUST-HAVE for every website containing multiple images on the 
 
 - Documentation menu
     - [🎁 Features](#-features)
-    - [⬇️ Installation](#-installation)
-    - [✍️ Usage](#-usage)
+    - [✍️ Usage](#%EF%B8%8F-usage)
+    - [🚀️ Quick start](#-quick-start)
 - Useful links
     - [NPM](https://www.npmjs.com/package/smooth-loader)
     - [Usage on codesandbox](https://codesandbox.io/s/smooth-loader-example-usage-5xr6h)
@@ -20,23 +20,6 @@ This package is a MUST-HAVE for every website containing multiple images on the 
 - ✅ Loads images with IMG tag and backgrounds
 - ✅ Loads images with a smooth fade in animation
 - ❔ Package for Vue 3 (coming soon...)
-- ❔ Package for React (coming soon...)
-
-# ⬇️ Installation
-
-```bash
-# npm
-npm i smooth-loader
-
-# yarn
-yarn add smooth-loader
-```
-
-```js
-import smoothLoader from 'smooth-loader'
-
-smoothLoader()
-```
 
 # ✍️ Usage
 
@@ -67,4 +50,20 @@ smoothLoader(myImages)
 
 <!-- Background image -->
 <div data-src="./images/we.png" class="smooth-loader my-bg-image"></div>
+```
+
+## 🚀 Quick Start
+
+```bash
+# npm
+npm i smooth-loader
+
+# yarn
+yarn add smooth-loader
+```
+
+```js
+import smoothLoader from 'smooth-loader'
+
+smoothLoader()
 ```
