@@ -2,18 +2,27 @@
 
 Smooth loader allows you smoothly lazy load images and background images. Lazy Loading defers the loading of an image that is not needed on the page immediately. An image, not visible to the user when the page loads, is loaded later when the user scrolls and the image actually becomes visible. If the user never scrolls, an image that is not visible to the user never gets loaded.
 
-- [NPM](https://www.npmjs.com/package/smooth-loader)
-- [Usage on codesandbox](https://codesandbox.io/s/smooth-loader-example-usage-5xr6h)
-- [Example usage in production](https://shobar.com.ua/category/photo-reports)
+This package is a MUST-HAVE for every website containing multiple images on the page. It's surely the best lazy loading package on NPM that you can configure to your own needs.
 
-# Features
+- Documentation menu
+    - [🎁 Features](#-features)
+    - [⬇️ Installation](#-installation)
+    - [✍️ Usage](#-usage)
+- Useful links
+    - [NPM](https://www.npmjs.com/package/smooth-loader)
+    - [Usage on codesandbox](https://codesandbox.io/s/smooth-loader-example-usage-5xr6h)
+    - [Example usage in production](https://shobar.com.ua/category/photo-reports)
 
-- Written in TypeScript
-- Very small package
-- Loads images with IMG tag and backgrounds
-- Loads images with a smooth fade in animation
+# 🎁 Features
 
-# Installation
+- ✅ Written in TypeScript
+- ✅ Very small package
+- ✅ Loads images with IMG tag and backgrounds
+- ✅ Loads images with a smooth fade in animation
+- ❔ Package for Vue 3 (coming soon...)
+- ❔ Package for React (coming soon...)
+
+# ⬇️ Installation
 
 ```bash
 # npm
@@ -29,7 +38,7 @@ import smoothLoader from 'smooth-loader'
 smoothLoader()
 ```
 
-# Usage
+# ✍️ Usage
 
 To make image or element Lazy loaded, replace `src` attribute with `data-src`
 on image element, and add `data-src` attribute to elements that have background
@@ -58,10 +67,4 @@ smoothLoader(myImages)
 
 <!-- Background image -->
 <div data-src="./images/we.png" class="smooth-loader my-bg-image"></div>
-```
-
-# Function types
-
-```js
-function smoothLoader(selector?: NodeListOf<HTMLDivElement | HTMLImageElement> | string) => void
 ```
