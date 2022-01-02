@@ -19,7 +19,7 @@ This package is a MUST-HAVE for every website containing multiple images on the 
 - ✅ Very small package
 - ✅ Loads images with IMG tag and backgrounds
 - ✅ Loads images with a smooth fade in animation
-- ❔ Package for Vue 3 (coming soon...)
+- ❔ Package for Vue 3 (coming soon in January 2022)
 
 # ✍️ Usage
 
