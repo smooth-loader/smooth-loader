@@ -1,16 +1,14 @@
-import { LazyImage } from './types'
+import { Config, LazyImage } from './types'
 
 /**
  * Class that handles lazy loading images with
  * Intersection Observer
  */
 export default class {
-    private readonly observerOptions = {
-        root: null,
-        threshold: 0,
-    }
-
-    public constructor(private readonly images: NodeListOf<LazyImage>) {
+    public constructor(
+        private readonly images: NodeListOf<LazyImage>,
+        private readonly config: Config
+    ) {
     }
 
     /**
@@ -52,7 +50,7 @@ export default class {
                     observer.unobserve(img)
                 }
             })
-        }, this.observerOptions)
+        }, this.config)
 
         observer.observe(img)
     }

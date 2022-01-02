@@ -1,13 +1,18 @@
 import LazyLoader from "./LazyLoader"
-import { LazyImage } from './types'
+import { Config, LazyImage } from './types'
 
-export default (selector?: NodeListOf<LazyImage> | string): void => {
+export default (selector?: NodeListOf<LazyImage> | string, config?: Config): void => {
     const images = getImagesElements(selector)
 
     if (!images)
         return
 
-    return new LazyLoader(images).execute()
+    const configurations = config || {
+        root: null,
+        threshold: 0,
+    }
+
+    return new LazyLoader(images, configurations).execute()
 }
 
 function getImagesElements(selector?: NodeListOf<LazyImage> | string): NodeListOf<LazyImage> {
