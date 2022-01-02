@@ -17,5 +17,5 @@ function getImagesElements(selector?: NodeListOf<LazyImage> | string): NodeListO
     if (selector instanceof NodeList)
         return selector
 
-    return document.querySelectorAll<LazyImage>('.smooth-loader')
+    return document.querySelectorAll<LazyImage>('.smooth-loader[data-src]')
 }
