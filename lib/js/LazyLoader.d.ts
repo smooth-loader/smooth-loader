@@ -5,7 +5,7 @@ import { LazyImage } from './types';
  */
 export default class {
     private readonly images;
-    private observerOptions;
+    private readonly observerOptions;
     constructor(images: NodeListOf<LazyImage>);
     /**
      * If image has tag IMG then set the src attribute to img url,
@@ -13,7 +13,8 @@ export default class {
      */
     private loadImage;
     /**
-     * Create observer object
+     * Create observer object that will trigger loading image function
+     * when it's gonna be visible on the screen
      */
     private createObserver;
     /**

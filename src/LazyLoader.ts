@@ -1,18 +1,14 @@
-import { LazyImage } from './types'
+import { Config, LazyImage } from './types'
 
 /**
  * Class that handles lazy loading images with
  * Intersection Observer
  */
 export default class {
-    private readonly images: NodeListOf<LazyImage>
-    private observerOptions = {
-        root: null,
-        threshold: 0,
-    }
-
-    public constructor(images: NodeListOf<LazyImage>) {
-        this.images = images
+    public constructor(
+        private readonly images: NodeListOf<LazyImage>,
+        private readonly config: Config
+    ) {
     }
 
     /**
@@ -22,23 +18,29 @@ export default class {
     private loadImage(img: LazyImage): void {
         const imageUrl = img.getAttribute('data-src')
 
-        img.style.opacity = '0'
-        img.style.transition = 'opacity 777ms'
-
         if (!imageUrl)
             return
 
-        if (img.tagName === 'IMG') {
-            img.setAttribute('src', imageUrl)
-            img.addEventListener('load', () => img.style.opacity = '1')
-        } else {
-            img.style.backgroundImage = `url(${img.getAttribute('data-src')})`
-            setTimeout(() => img.style.opacity = '1', 0)
-        }
+        img.style.opacity = '0'
+
+        const ghostImage = new Image()
+
+        ghostImage.addEventListener('load', () => {
+            img.style.transition = 'opacity 777ms'
+            img.style.opacity = '1'
+        })
+
+        ghostImage.src = imageUrl
+
+        img.tagName === 'IMG'
+            ? img.setAttribute('src', imageUrl)
+            : img.style.backgroundImage = `url(${imageUrl})`
     }
 
+
     /**
-     * Create observer object
+     * Create observer object that will trigger loading image function
+     * when it's gonna be visible on the screen
      */
     private createObserver(img: LazyImage): void {
         const observer = new IntersectionObserver((entries, observer) => {
@@ -48,7 +50,7 @@ export default class {
                     observer.unobserve(img)
                 }
             })
-        }, this.observerOptions)
+        }, this.config)
 
         observer.observe(img)
     }
