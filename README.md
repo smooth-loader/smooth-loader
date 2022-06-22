@@ -8,21 +8,21 @@
     - [Usage on codesandbox](https://codesandbox.io/s/smooth-loader-example-usage-5xr6h)
     - [Example usage in production](https://shobar.com.ua/category/photo-reports)
 
-# 📄 Description
+## 📄 Description
 
 Smooth loader allows you smoothly lazy load images and background images. Lazy Loading defers the loading of an image that is not needed on the page immediately. An image, not visible to the user when the page loads, is loaded later when the user scrolls and the image actually becomes visible. If the user never scrolls, an image that is not visible to the user never gets loaded.
 
 This package is a MUST-HAVE for every website containing multiple images on the page. It's surely the best lazy loading package on NPM that you can configure to your own needs.
 
-# 🎁 Features
+## 🎁 Features
 
-- ✅ Written in TypeScript
-- ✅ Very small package
-- ✅ Loads images with IMG tag and backgrounds
-- ✅ Loads images with a smooth fade in animation
-- ❔ Package for Vue 3 (coming soon in January 2022)
+- ✅ Written in TypeScript;
+- ✅ Very small package;
+- ✅ Loads images with IMG tag and backgrounds;
+- ✅ Loads images with a smooth fade in animation;
+- ✅ Configurable;
 
-# ✍️ Usage
+## ✍️ Usage
 
 To make image or element Lazy loaded, replace `src` attribute with `data-src`
 on image element, and add `data-src` attribute to elements that have background
