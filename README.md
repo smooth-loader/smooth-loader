@@ -78,6 +78,8 @@ I want to load a small image on page load, and when person scrolls into the imag
 
 > It's important to add `width` and `height` attributes or have width and hight setup correctly with CSS. Because small image has to be filling all the space that large image is taking.
 
+Instead of the small version of your image you can use just a small placeholder image, and it will work fine.
+
 ## ⚙️ Configurations
 
 As the second argument, you can pass configurations. Some of the parameters extend [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).

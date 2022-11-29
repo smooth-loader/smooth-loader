@@ -21,9 +21,7 @@ export default class {
         if (!imageUrl)
             return
 
-        if (img.hasAttribute('src')) {
-            img.style.filter = 'blur(7px)'
-        } else {
+        if (!img.hasAttribute('src')) {
             img.style.opacity = '0'
         }
 
@@ -32,7 +30,6 @@ export default class {
         ghostImage.addEventListener('load', () => {
             img.style.transition = 'opacity 777ms'
             img.style.opacity = '1'
-            img.style.filter = 'none'
         })
 
         ghostImage.src = imageUrl
