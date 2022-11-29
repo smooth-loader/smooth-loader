@@ -1,5 +1,11 @@
 # Release Notes
 
+## v1.1.0 (2022-11-29)
+
+- Added missing information to the README.md file;
+
+----
+
 ## v1.0.7 (2022-06-22)
 
 - Fixed appearing transition with background images. Now it works.
