@@ -21,13 +21,18 @@ export default class {
         if (!imageUrl)
             return
 
-        img.style.opacity = '0'
+        if (img.hasAttribute('src')) {
+            img.style.filter = 'blur(7px)'
+        } else {
+            img.style.opacity = '0'
+        }
 
         const ghostImage = new Image()
 
         ghostImage.addEventListener('load', () => {
             img.style.transition = 'opacity 777ms'
             img.style.opacity = '1'
+            img.style.filter = 'none'
         })
 
         ghostImage.src = imageUrl

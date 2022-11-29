@@ -1,5 +1,12 @@
 # Release Notes
 
+## v1.1.0-beta.0 (2022-11-29)
+
+- Added missing information to the README.md file;
+- Added ability to show small images as placeholder, so you don't look at empty screen but blurred mini version of the image;
+
+----
+
 ## v1.0.7 (2022-06-22)
 
 - Fixed appearing transition with background images. Now it works.

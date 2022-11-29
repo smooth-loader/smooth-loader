@@ -1,12 +1,12 @@
-import { LazyImage } from './types';
+import { Config, LazyImage } from './types';
 /**
  * Class that handles lazy loading images with
  * Intersection Observer
  */
 export default class {
     private readonly images;
-    private readonly observerOptions;
-    constructor(images: NodeListOf<LazyImage>);
+    private readonly config;
+    constructor(images: NodeListOf<LazyImage>, config: Config);
     /**
      * If image has tag IMG then set the src attribute to img url,
      * otherwise set the background of the element to given image url
