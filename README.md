@@ -2,7 +2,7 @@
     - [📄 Description](#-description)
     - [🎁 Features](#-features)
     - [✍️ Usage](#%EF%B8%8F-usage)
-    - [🌄 Image preview](#%EF%B8%8F-configurations)
+    - [🌄 Image preview](#-image-preview)
     - [⚙️ Configurations](#%EF%B8%8F-configurations)
     - [🚀️ Quick start](#-quick-start)
 - Useful links
