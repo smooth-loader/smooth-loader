@@ -45,18 +45,22 @@ export default class {
 
 
     /**
-     * Create observer object that will trigger loading image function
-     * when it's gonna be visible on the screen
+     * Creates instance of IntersectionObserver and loads image in DOM
+     * as soon as image will be visible on the screen
      */
     private createObserver(lazyImage: LazyImage): void {
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    this.loadImage(lazyImage)
-                    observer.unobserve(lazyImage)
+        const handleObserver = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+            for (const entry of entries) {
+                if (!entry.isIntersecting) {
+                    continue
                 }
-            })
-        }, this.config)
+
+                this.loadImage(lazyImage)
+                observer.unobserve(lazyImage)
+            }
+        }
+
+        const observer = new IntersectionObserver(handleObserver, this.config)
 
         observer.observe(lazyImage)
     }
