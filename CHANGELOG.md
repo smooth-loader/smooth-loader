@@ -2,7 +2,7 @@
 
 ----
 
-## v1.1.0 (2022-11-30)
+## v1.1.0-beta.2 (2022-11-30)
 
 - Code refactoring;
 - Manual testing;
