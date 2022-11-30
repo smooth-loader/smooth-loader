@@ -15,28 +15,32 @@ export default class {
      * If image has tag IMG then set the src attribute to img url,
      * otherwise set the background of the element to given image url
      */
-    private loadImage(img: LazyImage): void {
-        const imageUrl = img.getAttribute('data-src')
+    private loadImage(lazyImage: LazyImage): void {
+        const imageUrl = lazyImage.getAttribute('data-src')
 
-        if (!imageUrl)
+        if (!imageUrl) {
             return
+        }
 
-        if (!img.hasAttribute('src')) {
-            img.style.opacity = '0'
+        if (!lazyImage.hasAttribute('src')) {
+            lazyImage.style.opacity = '0'
         }
 
         const ghostImage = new Image()
 
         ghostImage.addEventListener('load', () => {
-            img.style.transition = 'opacity 777ms'
-            img.style.opacity = '1'
+            lazyImage.style.transition = 'opacity 777ms'
+            lazyImage.style.opacity = '1'
         })
 
         ghostImage.src = imageUrl
 
-        img.tagName === 'IMG'
-            ? img.setAttribute('src', imageUrl)
-            : img.style.backgroundImage = `url(${imageUrl})`
+        if (lazyImage.tagName === 'IMG') {
+            lazyImage.setAttribute('src', imageUrl)
+            return
+        }
+
+        lazyImage.style.backgroundImage = `url(${imageUrl})`
     }
 
 
@@ -44,17 +48,17 @@ export default class {
      * Create observer object that will trigger loading image function
      * when it's gonna be visible on the screen
      */
-    private createObserver(img: LazyImage): void {
+    private createObserver(lazyImage: LazyImage): void {
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    this.loadImage(img)
-                    observer.unobserve(img)
+                    this.loadImage(lazyImage)
+                    observer.unobserve(lazyImage)
                 }
             })
         }, this.config)
 
-        observer.observe(img)
+        observer.observe(lazyImage)
     }
 
     /**
@@ -63,8 +67,10 @@ export default class {
      * when image is loaded, appends it to a placeholder
      */
     public execute(): void {
-        this.images.forEach(img => {
-            !window['IntersectionObserver'] ? this.loadImage(img) : this.createObserver(img)
-        })
+        for (const img of this.images) {
+            window['IntersectionObserver']
+                ? this.createObserver(img)
+                : this.loadImage(img)
+        }
     }
 }
