@@ -2,6 +2,13 @@
 
 ----
 
+## v1.1.0 (2022-11-30)
+
+- Code refactoring;
+- Manual testing;
+
+----
+
 ## v1.1.0-beta.1 (2022-11-29)
 
 - Removed blur from small placeholder images if they are set with `src` attribute;
