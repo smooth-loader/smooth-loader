@@ -2,6 +2,12 @@
 
 ----
 
+## v1.1.1 (2022-12-04)
+
+- Code refactoring;
+
+----
+
 ## v1.1.0 (2022-12-01)
 
 - Moved from beta version;
