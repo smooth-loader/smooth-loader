@@ -1,7 +1,7 @@
 import handler from './handler'
-import { Config, LazyImage } from './types'
+import { Config, LazyImage, InputTypes } from './types'
 
-export default (selector?: NodeListOf<LazyImage> | LazyImage[] | string, config?: Config): void => {
+export default (selector?: InputTypes, config?: Config): void => {
     const images = getImagesElements(selector)
 
     if (!images) {
@@ -13,17 +13,23 @@ export default (selector?: NodeListOf<LazyImage> | LazyImage[] | string, config?
         threshold: 0,
     }
 
-    return handler(Array.from(images), configurations)
+    return handler(images, configurations)
 }
 
-function getImagesElements(selector?: NodeListOf<LazyImage> | LazyImage[] | string): NodeListOf<LazyImage> {
-    if (typeof selector === 'string' && selector !== '') {
-        return document.querySelectorAll<LazyImage>(selector)
+function getImagesElements(selector?: InputTypes): LazyImage[] {
+    if (!selector) {
+        const elements = document.querySelectorAll<LazyImage>('.smooth-loader[data-src]')
+        return Array.from(elements)
+    }
+
+    if (typeof selector === 'string') {
+        const elements = document.querySelectorAll<LazyImage>(selector)
+        return Array.from(elements)
     }
 
     if (selector instanceof NodeList) {
-        return selector
+        return Array.from(selector)
     }
 
-    return document.querySelectorAll<LazyImage>('.smooth-loader[data-src]')
+    return selector
 }
