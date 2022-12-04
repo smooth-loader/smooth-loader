@@ -6,6 +6,7 @@
 
 - Code refactoring;
 - Added ability to provide array of images instead of only NodeListOf;
+- Improved documentation (README.md);
 
 ----
 
