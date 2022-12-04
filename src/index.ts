@@ -1,4 +1,4 @@
-import loader from './loader'
+import handler from './handler'
 import { Config, LazyImage } from './types'
 
 export default (selector?: NodeListOf<LazyImage> | string, config?: Config): void => {
@@ -13,7 +13,7 @@ export default (selector?: NodeListOf<LazyImage> | string, config?: Config): voi
         threshold: 0,
     }
 
-    return loader(images, configurations)
+    return handler(images, configurations)
 }
 
 function getImagesElements(selector?: NodeListOf<LazyImage> | string): NodeListOf<LazyImage> {

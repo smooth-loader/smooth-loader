@@ -1,4 +1,5 @@
 import { Config, LazyImage } from './types'
+import { loadImage } from './imageLoader'
 
 /**
  * Creates image object, gets attributes from placeholder,
@@ -8,39 +9,6 @@ import { Config, LazyImage } from './types'
 export default function (images: NodeListOf<LazyImage> | LazyImage[], config: Config): void {
     images.forEach(img => window['IntersectionObserver'] ? createObserver(img, config) : loadImage(img))
 }
-
-/**
- * If image has tag IMG then set the src attribute to img url,
- * otherwise set the background of the element to given image url
- */
-function loadImage(lazyImage: LazyImage): void {
-    const imageUrl = lazyImage.getAttribute('data-src')
-
-    if (!imageUrl) {
-        return
-    }
-
-    if (!lazyImage.hasAttribute('src')) {
-        lazyImage.style.opacity = '0'
-    }
-
-    const ghostImage = new Image()
-
-    ghostImage.addEventListener('load', () => {
-        lazyImage.style.transition = 'opacity 777ms'
-        lazyImage.style.opacity = '1'
-    })
-
-    ghostImage.src = imageUrl
-
-    if (lazyImage.tagName === 'IMG') {
-        lazyImage.setAttribute('src', imageUrl)
-        return
-    }
-
-    lazyImage.style.backgroundImage = `url(${imageUrl})`
-}
-
 
 /**
  * Creates instance of IntersectionObserver and loads image in DOM
