@@ -2,6 +2,12 @@
 
 ----
 
+## v1.1.2 (2022-12-04)
+
+- Removed line from docs;
+
+----
+
 ## v1.1.1 (2022-12-04)
 
 - Code refactoring;

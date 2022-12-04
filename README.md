@@ -25,7 +25,6 @@ This package is a MUST-HAVE for every website containing multiple images on the 
 - 😍 Loads images with a smooth fade in animation;
 - 😍 For image elements, you can show minified version of the image on initial page load;
 - 😍 Configurable;
-- 😍 Smooth loader for Vue 3 is coming soon;
 
 ## ✍️ Usage
 
