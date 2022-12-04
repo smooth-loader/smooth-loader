@@ -5,6 +5,7 @@
 ## v1.1.1 (2022-12-04)
 
 - Code refactoring;
+- Added ability to provide array of images instead of only NodeListOf;
 
 ----
 

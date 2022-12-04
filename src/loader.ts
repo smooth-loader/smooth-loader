@@ -5,10 +5,8 @@ import { Config, LazyImage } from './types'
  * sets them on image object, adds classes to image and
  * when image is loaded, appends it to a placeholder
  */
-export default function (images: NodeListOf<LazyImage>, config: Config): void {
-    for (const img of images) {
-        window['IntersectionObserver'] ? createObserver(img, config) : loadImage(img)
-    }
+export default function (images: NodeListOf<LazyImage> | LazyImage[], config: Config): void {
+    images.forEach(img => window['IntersectionObserver'] ? createObserver(img, config) : loadImage(img))
 }
 
 /**
