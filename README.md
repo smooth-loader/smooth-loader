@@ -18,52 +18,75 @@ This package is a MUST-HAVE for every website containing multiple images on the 
 
 ## 🎁 Features
 
-- ✅ Written in TypeScript;
-- ✅ Very small package;
-- ✅ Loads images with IMG tag and backgrounds;
-- ✅ Loads images with a smooth fade in animation;
-- ✅ Configurable;
+- 😍 Well-documented;
+- 😍 Written in TypeScript;
+- 😍 Very small package;
+- 😍 Loads images with IMG tag and backgrounds;
+- 😍 Loads images with a smooth fade in animation;
+- 😍 For image elements, you can show minified version of the image on initial page load;
+- 😍 Configurable;
+- 😍 Smooth loader for Vue 3 is coming soon;
 
 ## ✍️ Usage
 
-To make image or element Lazy loaded, replace `src` attribute with `data-src`
-on image element, and add `data-src` attribute to elements that have background
-image that you want to lazy load.
+To make image element or background image lazy loaded:
+- Add image URL to `data-src` attribute;
+- Call `smoothLoader()` function;
 
-- Add **smooth-loader** css class to each image or element that you want or specify your own selector for images instead of **smooth-loader**.
-- Call `smoothLoader()` function when you want to lazy load images.
+#### Look at several options to choose images which you want to lazy load:
 
 ```js
-// with .smooth-loader selector
+import smoothLoader from 'smooth-loader'
+
+// Default selector
+// Selects all images with 'smooth-loader' class
 smoothLoader()
 
-// with custom string selector
+// Custom selector
+// Selects all images with 'lazy-image' class
 smoothLoader('.lazy-image')
 
-// with custom elements
-const myImages = document.querySelectorAll<HTMLImageElement>('img')
-smoothLoader(myImages)
+// Elements
+// Selects all the images
+const images = document.querySelectorAll<HTMLImageElement>('img')
+smoothLoader(images)
+
+// Certain elements
+// Selects all the images
+const myPhoto = document.querySelector<HTMLImageElement>('#me')
+
+if (myPhoto) {
+    smoothLoader([myPhoto])
+}
 ```
 
 > Note, that lazy loading works only when your elements are already in the DOM. Meaning, if images are loaded after the `smoothLoader` was executed, lazy loading will not work.
 
 ```html
 <!-- Regular image -->
-<img data-src="./images/me.png" class="smooth-loader">
+<img
+    src="./images/me-min.webp"
+    data-src="./images/me.webp"
+    class="smooth-loader"
+    alt="Photo of Serhii Cho"
+/>
 
 <!-- Background image -->
-<div data-src="./images/we.png" class="smooth-loader my-bg-image"></div>
+<div
+    data-src="./images/we.png"
+    class="smooth-loader my-bg-image"
+></div>
 ```
 
 ## 🌄 Image preview
 
-You can add a small version of the image to `src` attribute on image element, so that users don't look at the empty place when image is loading. It can be useful if you have many images on the page or you have several large images which.
+You can add a small version of the image to `src` attribute on image element `<img src="here">`, so that users don't look at the empty place when image is loading. It can be useful if you have many images on the page or you have several large images which.
 
 To use this feature, you'll need small versions of your images which will be loaded right away when the page loads. Let's say I have 2 same images with different sizes:
 
 ![Big and small images](https://serhii.io/storage/other/big-and-small-images.png)
 
-I want to load a small image on page load, and when person scrolls into the image view, the bigger version will be loaded and it will replace the small one. In my HTML I will simply add an `src` attribute with path to a small image.
+I want to load a small image on the initial page load, and when person scrolls into the image view, the bigger version will be loaded and it will replace the small one. In my HTML I will simply add an `src` attribute with path to a small image.
 
 ```html
 <img
@@ -77,6 +100,8 @@ I want to load a small image on page load, and when person scrolls into the imag
 ```
 
 > It's important to add `width` and `height` attributes or have width and hight setup correctly with CSS. Because small image has to be filling all the space that large image is taking.
+
+> This feature works only for image elements, background images do not support it yet!
 
 Instead of the small version of your image you can use just a small placeholder image, and it will work fine.
 

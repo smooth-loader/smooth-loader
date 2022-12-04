@@ -2,6 +2,14 @@
 
 ----
 
+## v1.1.1 (2022-12-04)
+
+- Code refactoring;
+- Added ability to provide array of images instead of only NodeListOf;
+- Improved documentation (README.md);
+
+----
+
 ## v1.1.0 (2022-12-01)
 
 - Moved from beta version;

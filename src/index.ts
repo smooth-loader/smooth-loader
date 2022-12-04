@@ -1,26 +1,35 @@
-import LazyLoader from "./LazyLoader"
-import { Config, LazyImage } from './types'
+import handler from './handler'
+import { Config, LazyImage, InputTypes } from './types'
 
-export default (selector?: NodeListOf<LazyImage> | string, config?: Config): void => {
+export default (selector?: InputTypes, config?: Config): void => {
     const images = getImagesElements(selector)
 
-    if (!images)
+    if (!images) {
         return
+    }
 
     const configurations = config || {
         root: null,
         threshold: 0,
     }
 
-    return new LazyLoader(images, configurations).execute()
+    return handler(images, configurations)
 }
 
-function getImagesElements(selector?: NodeListOf<LazyImage> | string): NodeListOf<LazyImage> {
-    if (typeof selector === 'string' && selector !== '')
-        return document.querySelectorAll<LazyImage>(selector)
+function getImagesElements(selector?: InputTypes): LazyImage[] {
+    if (!selector) {
+        const elements = document.querySelectorAll<LazyImage>('.smooth-loader[data-src]')
+        return Array.from(elements)
+    }
 
-    if (selector instanceof NodeList)
-        return selector
+    if (typeof selector === 'string') {
+        const elements = document.querySelectorAll<LazyImage>(selector)
+        return Array.from(elements)
+    }
 
-    return document.querySelectorAll<LazyImage>('.smooth-loader[data-src]')
+    if (selector instanceof NodeList) {
+        return Array.from(selector)
+    }
+
+    return selector
 }
