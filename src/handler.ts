@@ -6,7 +6,7 @@ import { loadImage } from './imageLoader'
  * sets them on image object, adds classes to image and
  * when image is loaded, appends it to a placeholder
  */
-export default function (images: NodeListOf<LazyImage> | LazyImage[], config: Config): void {
+export default function (images: LazyImage[], config: Config): void {
     images.forEach(img => window['IntersectionObserver'] ? createObserver(img, config) : loadImage(img))
 }
 

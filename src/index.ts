@@ -1,7 +1,7 @@
 import handler from './handler'
 import { Config, LazyImage } from './types'
 
-export default (selector?: NodeListOf<LazyImage> | string, config?: Config): void => {
+export default (selector?: NodeListOf<LazyImage> | LazyImage[] | string, config?: Config): void => {
     const images = getImagesElements(selector)
 
     if (!images) {
@@ -13,10 +13,10 @@ export default (selector?: NodeListOf<LazyImage> | string, config?: Config): voi
         threshold: 0,
     }
 
-    return handler(images, configurations)
+    return handler(Array.from(images), configurations)
 }
 
-function getImagesElements(selector?: NodeListOf<LazyImage> | string): NodeListOf<LazyImage> {
+function getImagesElements(selector?: NodeListOf<LazyImage> | LazyImage[] | string): NodeListOf<LazyImage> {
     if (typeof selector === 'string' && selector !== '') {
         return document.querySelectorAll<LazyImage>(selector)
     }
