@@ -2,6 +2,12 @@
 
 ----
 
+## v1.1.3 (2023-11-19)
+
+- Changed readme.md file
+
+----
+
 ## v1.1.2 (2022-12-04)
 
 - Removed line from docs;
