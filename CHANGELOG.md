@@ -1,6 +1,6 @@
 # Release Notes
 
-## v1.2.0 (2024-04-08)
+## v1.1.4 (2024-04-08)
 
 - Formatted the `CHANGELOG.md` file
 - Refactor the code to make it more readable
