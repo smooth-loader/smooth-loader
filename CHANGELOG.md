@@ -3,6 +3,7 @@
 ## v1.2.0 (2024-04-08)
 
 - Formatted the `CHANGELOG.md` file
+- Refactor the code to make it more readable
 
 ## v1.1.3 (2023-11-19)
 
