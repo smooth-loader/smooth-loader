@@ -1,5 +1,5 @@
 import observerCreator from './observerCreator'
-import { Config, LazyImage, InputTypes } from './types'
+import { Config, ImageElement, InputTypes } from './types'
 
 export default (selector?: InputTypes, config?: Config): void => {
     const images = getImagesElements(selector)
@@ -16,14 +16,14 @@ export default (selector?: InputTypes, config?: Config): void => {
     return observerCreator(images, configurations)
 }
 
-function getImagesElements(selector?: InputTypes): LazyImage[] {
+function getImagesElements(selector?: InputTypes): ImageElement[] {
     if (!selector) {
-        const elements = document.querySelectorAll<LazyImage>('.smooth-loader[data-src]')
+        const elements = document.querySelectorAll<ImageElement>('.smooth-loader[data-src]')
         return Array.from(elements)
     }
 
     if (typeof selector === 'string') {
-        const elements = document.querySelectorAll<LazyImage>(selector)
+        const elements = document.querySelectorAll<ImageElement>(selector)
         return Array.from(elements)
     }
 

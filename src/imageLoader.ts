@@ -1,10 +1,10 @@
-import { LazyImage } from './types'
+import { ImageElement } from './types'
 
 /**
  * If image has tag IMG then set the src attribute to img url,
  * otherwise set the background of the element to given image url
  */
-export function loadImage(lazyImage: LazyImage): void {
+export function loadImage(lazyImage: ImageElement): void {
     const imageUrl = getImageUrl(lazyImage)
 
     if (!imageUrl) {
@@ -32,5 +32,5 @@ export function loadImage(lazyImage: LazyImage): void {
     lazyImage.style.backgroundImage = `url(${imageUrl})`
 }
 
-const isImageElement = (img: LazyImage) => img.tagName === 'IMG'
-const getImageUrl = (img: LazyImage) => img.getAttribute('data-src')
+const isImageElement = (img: ImageElement) => img.tagName === 'IMG'
+const getImageUrl = (img: ImageElement) => img.getAttribute('data-src')

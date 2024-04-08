@@ -1,4 +1,4 @@
-import { Config, LazyImage } from './types'
+import { Config, ImageElement } from './types'
 import { loadImage } from './imageLoader'
 
 /**
@@ -6,7 +6,7 @@ import { loadImage } from './imageLoader'
  * sets them on image object, adds classes to image and
  * when image is loaded, appends it to a placeholder
  */
-export default function (images: LazyImage[], config: Config): void {
+export default function (images: ImageElement[], config: Config): void {
     for (const img of images) {
         if (browserSupportsIntersectionObserver()) {
             applyIntersectionObserverTo(img, config)
@@ -25,19 +25,22 @@ function browserSupportsIntersectionObserver(): boolean {
  * Creates instance of IntersectionObserver and loads image in DOM
  * as soon as image will be visible on the screen
  */
-function applyIntersectionObserverTo(lazyImage: LazyImage, config: Config): void {
+function applyIntersectionObserverTo(img: ImageElement, config: Config): void {
     const handleObserver = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
         for (const entry of entries) {
+            // If image is not visible on the screen, do nothing
             if (!entry.isIntersecting) {
                 continue
             }
 
-            loadImage(lazyImage)
-            observer.unobserve(lazyImage)
+            loadImage(img)
+
+            // Stop observing image after it's loaded
+            observer.unobserve(img)
         }
     }
 
     const observer = new IntersectionObserver(handleObserver, config)
 
-    observer.observe(lazyImage)
+    observer.observe(img)
 }
