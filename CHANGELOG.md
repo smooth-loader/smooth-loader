@@ -4,6 +4,7 @@
 
 - Formatted the `CHANGELOG.md` file
 - Refactor the code to make it more readable
+- Improve error handling
 
 ## v1.1.3 (2023-11-19)
 

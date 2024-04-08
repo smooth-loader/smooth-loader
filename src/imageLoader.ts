@@ -16,6 +16,17 @@ export function loadImage(img: ImageElement): void {
         img.style.opacity = '0'
     }
 
+    preloadAndFadeInImage(img, imageUrl)
+
+    if (isImageElement(img)) {
+        img.setAttribute('src', imageUrl)
+        return
+    }
+
+    img.style.backgroundImage = `url(${imageUrl})`
+}
+
+function preloadAndFadeInImage(img: ImageElement, imageUrl: string): void {
     const preloadedImage = new Image()
 
     preloadedImage.addEventListener('load', () => {
@@ -24,13 +35,6 @@ export function loadImage(img: ImageElement): void {
     })
 
     preloadedImage.src = imageUrl
-
-    if (isImageElement(img)) {
-        img.setAttribute('src', imageUrl)
-        return
-    }
-
-    img.style.backgroundImage = `url(${imageUrl})`
 }
 
 const isImageElement = (img: ImageElement) => img.tagName === 'IMG'
