@@ -26,6 +26,7 @@ function browserSupportsIntersectionObserver(): boolean {
  * as soon as image will be visible on the screen
  */
 function applyIntersectionObserverTo(img: ImageElement, config: Config): void {
+    // This callback will be called every time the image is visible on the screen
     const handleObserver = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
         for (const entry of entries) {
             // If image is not visible on the screen, do nothing
@@ -40,7 +41,5 @@ function applyIntersectionObserverTo(img: ImageElement, config: Config): void {
         }
     }
 
-    const observer = new IntersectionObserver(handleObserver, config)
-
-    observer.observe(img)
+    new IntersectionObserver(handleObserver, config).observe(img)
 }
