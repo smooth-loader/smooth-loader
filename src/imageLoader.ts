@@ -4,32 +4,33 @@ import { ImageElement } from './types'
  * If image has tag IMG then set the src attribute to img url,
  * otherwise set the background of the element to given image url
  */
-export function loadImage(lazyImage: ImageElement): void {
-    const imageUrl = getImageUrl(lazyImage)
+export function loadImage(img: ImageElement): void {
+    const imageUrl = getImageUrl(img)
 
     if (!imageUrl) {
+        console.warn('SmoothLoader: "data-src" attribute is missing or empty')
         return
     }
 
-    if (!lazyImage.hasAttribute('src')) {
-        lazyImage.style.opacity = '0'
+    if (!img.hasAttribute('src')) {
+        img.style.opacity = '0'
     }
 
-    const ghostImage = new Image()
+    const preloadedImage = new Image()
 
-    ghostImage.addEventListener('load', () => {
-        lazyImage.style.transition = 'opacity 777ms'
-        lazyImage.style.opacity = '1'
+    preloadedImage.addEventListener('load', () => {
+        img.style.transition = 'opacity 777ms'
+        img.style.opacity = '1'
     })
 
-    ghostImage.src = imageUrl
+    preloadedImage.src = imageUrl
 
-    if (isImageElement(lazyImage)) {
-        lazyImage.setAttribute('src', imageUrl)
+    if (isImageElement(img)) {
+        img.setAttribute('src', imageUrl)
         return
     }
 
-    lazyImage.style.backgroundImage = `url(${imageUrl})`
+    img.style.backgroundImage = `url(${imageUrl})`
 }
 
 const isImageElement = (img: ImageElement) => img.tagName === 'IMG'
