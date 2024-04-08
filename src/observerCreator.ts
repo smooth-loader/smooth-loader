@@ -7,14 +7,25 @@ import { loadImage } from './imageLoader'
  * when image is loaded, appends it to a placeholder
  */
 export default function (images: LazyImage[], config: Config): void {
-    images.forEach(img => window['IntersectionObserver'] ? createObserver(img, config) : loadImage(img))
+    for (const img of images) {
+        if (browserSupportsIntersectionObserver()) {
+            applyIntersectionObserverTo(img, config)
+            continue
+        }
+
+        loadImage(img)
+    }
+}
+
+function browserSupportsIntersectionObserver(): boolean {
+    return 'IntersectionObserver' in window
 }
 
 /**
  * Creates instance of IntersectionObserver and loads image in DOM
  * as soon as image will be visible on the screen
  */
-function createObserver(lazyImage: LazyImage, config: Config): void {
+function applyIntersectionObserverTo(lazyImage: LazyImage, config: Config): void {
     const handleObserver = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
         for (const entry of entries) {
             if (!entry.isIntersecting) {

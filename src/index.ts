@@ -1,4 +1,4 @@
-import handler from './handler'
+import observerCreator from './observerCreator'
 import { Config, LazyImage, InputTypes } from './types'
 
 export default (selector?: InputTypes, config?: Config): void => {
@@ -13,7 +13,7 @@ export default (selector?: InputTypes, config?: Config): void => {
         threshold: 0,
     }
 
-    return handler(images, configurations)
+    return observerCreator(images, configurations)
 }
 
 function getImagesElements(selector?: InputTypes): LazyImage[] {
