@@ -12,8 +12,7 @@
     },
     "scripts": {
         "build": "tsc -p .",
-        "watch": "tsc --watch",
-        "publish": "npm login && npm publish"
+        "watch": "tsc --watch"
     },
     "keywords": [
         "lazy loader",
