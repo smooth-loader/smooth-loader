@@ -39,8 +39,3 @@ docker compose run --rm app
 You'll be able to run NPM commands inside of the container and commands:
 - `npm run watch` to make TypeScript watch for your changes and auto-compile everything to plain JavaScript
 - `npm run build` compile all of your TypeScript files to JavaScript
-
-#### Stop and Remove the Container
-```bash
-docker compose down
-```
