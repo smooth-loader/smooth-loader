@@ -1,9 +1,12 @@
 # Release Notes
 
+## v1.2.0 (2025-06-29)
+- Added Docker support to the project
+
 ## v1.1.4 (2024-04-08)
 - Formatted the `CHANGELOG.md` file
-- Refactor the code to make it more readable
-- Improve error handling
+- Refactored the code to make it more readable
+- Improved error handling
 
 ## v1.1.3 (2023-11-19)
 - Changed the `README.MD` file
