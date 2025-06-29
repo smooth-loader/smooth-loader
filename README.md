@@ -4,7 +4,7 @@ Smooth loader allows you smoothly lazy load images and background images. Lazy L
 
 This package is a MUST-HAVE for every website containing multiple images on the page. It's surely the best lazy loading package on NPM that you can configure to your own needs.
 
-## Follow the [official documentation](https://smooth-loader.github.io) for all the details.
+## Follow the [official documentation](https://smooth-loader.github.io) for all the details
 
 ## Development
 ### Without Docker
@@ -36,7 +36,9 @@ To create and enter inside the container, run this command:
 docker compose run --rm app
 ```
 
-You'll be able to run NPM commands inside of the container and commands like `npm run watch` to make TypeScript watch for your changes and auto-compile everything to plain JavaScript.
+You'll be able to run NPM commands inside of the container and commands:
+- `npm run watch` to make TypeScript watch for your changes and auto-compile everything to plain JavaScript
+- `npm run build` compile all of your TypeScript files to JavaScript
 
 #### Stop and Remove the Container
 ```bash
