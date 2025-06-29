@@ -1,5 +1,8 @@
 # Release Notes
 
+## v1.2.1 (2025-06-29)
+- Removed not needed lines from Dockerfile and docker-compose.yml
+
 ## v1.2.0 (2025-06-29)
 - Added Docker support to the project
 
