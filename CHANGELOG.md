@@ -4,7 +4,7 @@
 - Removed not needed lines from Dockerfile and docker-compose.yml
 
 ## v1.2.0 (2025-06-29)
-- Added Docker support to the project
+- Added container engines support like Podman and Docker to the project
 
 ## v1.1.4 (2024-04-08)
 - Formatted the `CHANGELOG.md` file

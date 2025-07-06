@@ -6,34 +6,44 @@ This package is a MUST-HAVE for every website containing multiple images on the 
 
 ## Follow the [official documentation](https://smooth-loader.github.io) for all the details
 
-## Development
-### Without Docker
-You'll need to have [Node JS and NPM](https://nodejs.org/en/download) installed on your machine to run it locally.
+## Contribute
 
-#### Install Dependencies
-```bash
-npm i
-```
+### With Container Engine
+If you use a container engine like [🦦 Podman](https://podman.io/) or [🐳 Docker](https://app.docker.com/), here are the steps that you can make:
 
-#### Watch File Changes
-This command will watch for your changes and compile TypeScript to JavaScript files into `lib/js`
-```bash
-npm run watch
-```
-
-### With [Docker](https://www.docker.com/)
-#### Build the Image
-To build an image, navigate to the root of the project that contains `Dockerfile` and run this command:
+#### Build an Image
+To build an image, navigate to the root of the project and run this command for Docker:
 ```bash
 docker compose build
+```
+For Podman, run this:
+```bash
+podman-compose build
 ```
 
 Now, you'll have an image `smooth-loader` that you can use to create a container.
 
+#### Copy `node_modules` Locally
+If you need to copy `node_modules` directory from the container to your local machine, run this command for Docker:
+```bash
+docker cp smooth-loader:/app/node_modules .
+```
+For Podman, run this:
+```bash
+podman cp smooth-loader:/app/node_modules .
+```
+
+> [!NOTE]
+> `node_modules` is excluded from using volume, that's why you need to copy it manually in [docker-compose.yml](docker-compose.yml) file. It's done to prevent your local modules to be copied to Linux container, since it can create incompatibility issues between operating systems if you don't use Linux.
+
 #### Create and Enter the Container
-To create and enter inside the container, run this command:
+To create and enter inside the container, run this command for Docker:
 ```bash
 docker compose run --rm app
+```
+For Podman, run this:
+```bash
+podman-compose run --rm app
 ```
 
 You'll be able to run NPM commands inside of the container and commands:
