@@ -34,7 +34,7 @@ podman cp smooth-loader:/app/node_modules .
 ```
 
 > [!NOTE]
-> `node_modules` is excluded from using volume, that's why you need to copy it manually in [docker-compose.yml](docker-compose.yml) file. It's done to prevent your local modules to be copied to Linux container, since it can create incompatibility issues between operating systems if you don't use Linux.
+> `node_modules` is excluded from using volume, that's why you need to copy it manually in [compose.yml](compose.yml) file. It's done to prevent your local modules to be copied to Linux container, since it can create incompatibility issues between operating systems if you don't use Linux.
 
 #### Create and Enter the Container
 To create and enter inside the container, run this command for Docker:
