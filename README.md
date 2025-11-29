@@ -9,41 +9,29 @@ This package is a MUST-HAVE for every website containing multiple images on the 
 ## Contribute
 
 ### With Container Engine
-If you use a container engine like [🦦 Podman](https://podman.io/) or [🐳 Docker](https://app.docker.com/), here are the steps that you can make:
+> [!NOTE]
+> If you use [🐳 Docker](https://app.docker.com/) instead of [🦦 Podman](https://podman.io/), just replace `podman-compose` with `docker compose`, and `podman` with `docker` in code examples below.
 
 #### Build an Image
-To build an image, navigate to the root of the project and run this command for Docker:
-```bash
-docker compose build
-```
-For Podman, run this:
+To build an image, navigate to the root of the project and run this command:
 ```bash
 podman-compose build
 ```
 
 Now, you'll have an image `smooth-loader` that you can use to create a container.
 
-#### Copy `node_modules` Locally
-If you need to copy `node_modules` directory from the container to your local machine, run this command for Docker:
-```bash
-docker cp smooth-loader:/app/node_modules .
-```
-For Podman, run this:
-```bash
-podman cp smooth-loader:/app/node_modules .
-```
 
-> [!NOTE]
-> `node_modules` is excluded from using volume, that's why you need to copy it manually in [compose.yml](compose.yml) file. It's done to prevent your local modules to be copied to Linux container, since it can create incompatibility issues between operating systems if you don't use Linux.
+#### Create `node_modules`
+Run this command to install npm packages and generate a `node_modules` directory on your local machine:
+
+```bash
+podman-compose run --rm app npm i
+```
 
 #### Create and Enter the Container
-To create and enter inside the container, run this command for Docker:
+To create and enter inside the container, run this command:
 ```bash
-docker compose run --rm app
-```
-For Podman, run this:
-```bash
-podman-compose run --rm app
+podman-compose run --rm app sh
 ```
 
 You'll be able to run NPM commands inside of the container and commands:
