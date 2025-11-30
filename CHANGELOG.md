@@ -2,7 +2,7 @@
 
 ## v1.2.2 (2025-11-30)
 - Upgraded TypeScript to the latest version.
-- Update `README.md` file by adding more info.
+- Updated `README.md` file by adding more info.
 
 ## v1.2.1 (2025-06-29)
 - Removed not needed lines from Dockerfile and docker-compose.yml.
