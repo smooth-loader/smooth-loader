@@ -4,8 +4,6 @@ services:
     app:
         image: smooth-loader
         container_name: smooth-loader
-        build:
-            context: .
-            dockerfile: Containerfile
+        build: .
         volumes:
             - .:/app:z
