@@ -4,20 +4,25 @@ name: Publish package to NPM
 
 on:
     push:
-        branches: master
+        branches: [master]
 
 jobs:
     publish:
-        runs-on: ubuntu-latest
+        runs-on: burn
         steps:
-            - uses: actions/checkout@v2
+            - name: Checkout
+              uses: actions/checkout@v4
 
             - name: Setup Node.js
-              uses: actions/setup-node@v2
+              uses: https://github.com/actions/setup-node@v2
               with:
                   node-version: '20'
                   registry-url: 'https://registry.npmjs.org/'
-            - run: npm install
-            - run: npm publish
+
+            - name: Install Deps
+              run: npm install
+
+            - name: Publish Library
+              run: npm publish
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

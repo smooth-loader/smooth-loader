@@ -1,5 +1,8 @@
 # Release Notes
 
+## v1.2.3 (2026-08-11)
+- Moved from GitHub to Codeberg
+
 ## v1.2.2 (2025-11-30)
 - Upgraded TypeScript to the latest version.
 - Updated `README.md` file by adding more info.
