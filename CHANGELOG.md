@@ -1,5 +1,8 @@
 # Release Notes
 
+## v1.2.4 (2026-08-13)
+- Improved forgejo action workflow file
+
 ## v1.2.3 (2026-08-11)
 - Moved from GitHub to Codeberg
 
