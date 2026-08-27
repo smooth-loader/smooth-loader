@@ -1,5 +1,8 @@
 # Release Notes
 
+## v1.2.5 (2026-08-27)
+- Change CI runner
+
 ## v1.2.4 (2026-08-13)
 
 - Improved forgejo action workflow file

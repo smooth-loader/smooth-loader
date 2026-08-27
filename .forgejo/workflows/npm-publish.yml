@@ -4,27 +4,29 @@ enable-email-notifications: true
 # Good article: https://medium.com/@codewithwaheed/publish-your-first-package-using-npm-and-github-actions-e453ca9f9fd2
 
 on:
-    push:
-        branches: [master]
+  push:
+    branches: [master]
 
 jobs:
-    publish:
-        runs-on: burn
-        name: Publish to NPM registry
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
+  publish:
+    runs-on: podman
+    container: docker.io/library/node:26
+    name: Publish to NPM registry
 
-            - name: Setup Node.js
-              uses: https://github.com/actions/setup-node@v2
-              with:
-                  node-version: '20'
-                  registry-url: 'https://registry.npmjs.org/'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-            - name: Install Deps
-              run: npm install
+      # - name: Setup Node.js
+      #   uses: https://github.com/actions/setup-node@v7
+      #   with:
+      #     node-version: "20"
+      #     registry-url: "https://registry.npmjs.org/"
 
-            - name: Publish Library
-              run: npm publish
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Install Deps
+        run: npm install
+
+      - name: Publish Library
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
