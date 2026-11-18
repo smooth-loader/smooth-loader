@@ -1,6 +1,11 @@
 # Release Notes
 
+## v1.2.6 (2026-11-18)
+
+- Moved to GitHub
+
 ## v1.2.5 (2026-08-27)
+
 - Change CI runner
 
 ## v1.2.4 (2026-08-13)
