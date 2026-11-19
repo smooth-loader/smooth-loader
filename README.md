@@ -1,4 +1,8 @@
-![Smooth loader logo](https://smooth-loader.serhiicho.com/images/logo.png)
+# Smooth Loader
+
+![NPM Version](https://img.shields.io/npm/v/smooth-loader)
+![NPM Downloads](https://img.shields.io/npm/dm/smooth-loader)
+![GitHub License](https://img.shields.io/github/license/smooth-loader/smooth-loader)
 
 Smooth loader allows you smoothly lazy load images and background images. Lazy Loading defers the loading of an image that is not needed on the page immediately. An image, not visible to the user when the page loads, is loaded later when the user scrolls and the image actually becomes visible. If the user never scrolls, an image that is not visible to the user never gets loaded.
 
