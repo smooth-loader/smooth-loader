@@ -4,10 +4,12 @@ name: Publish package to NPM
 
 on:
   push:
-    branches: [master]
+    tags:
+      - '**'
 
 jobs:
   publish:
+    if: github.event.created == true
     runs-on: ubuntu-latest
     name: Publish to NPM registry
 
